@@ -1,0 +1,46 @@
+{
+    "alias": {
+        "git": "",
+        "robot": ""
+    },
+    "actions": [
+        {
+            "type": "download_file",
+            "command": "<url>",
+            "workdir": "C:/Users/<user>/Documents/VsCode/Dart/rpa/work",
+            "on_fail": {
+                "action": "stop",
+                "message": "Não foi encontrada a Branch <[branch]>"
+            },
+            "inputs": [
+                {
+                    "origin": "<token>",
+                    "name": "b64_token",
+                    "type": "string"
+                },
+                {
+                    "origin": "<file_name>",
+                    "name": "file_name",
+                    "type": "string"
+                },
+                {
+                    "origin": "master",
+                    "name": "branch",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "type": "zip",
+            "command": "unzip download.zip",
+            "workdir": "C:/Users/<user>/Documents/VsCode/Dart/rpa/work",
+            "inputs": []
+        },
+        {
+            "type": "system",
+            "command": "delete_folder",
+            "workdir": "C:/Users/<user>/Documents/VsCode/Dart/rpa/work",
+            "inputs": []
+        }
+    ]
+}
